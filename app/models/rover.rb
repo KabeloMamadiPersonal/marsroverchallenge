@@ -1,13 +1,28 @@
 class Rover < ActiveRecord::Base
 
+  RIGHT = {
+    'N' => 'E',
+    'E' => 'S',
+    'S' => 'W',
+    'W' => 'N'
+  }.freeze
+
+  LEFT = {
+    'N' => 'W',
+    'E' => 'N',
+    'S' => 'E',
+    'W' => 'S'
+  }.freeze
+
   def make_movements
     moves = movements.chars
     moves.each do |move|
-      if move == 'L'
+      case move
+      when 'L'
         rotate_left
-      elsif move == 'R'
+      when 'R'
         rotate_right
-      elsif move == 'M'
+      when 'M'
         move_rover
       end
     end
@@ -16,31 +31,11 @@ class Rover < ActiveRecord::Base
   private
 
   def rotate_left
-    new_direction =
-      if direction == 'N'
-        'W'
-      elsif direction == 'E'
-        'N'
-      elsif direction == 'S'
-        'E'
-      elsif direction == 'W'
-        'S'
-      end
-    update!(direction: new_direction)
+    update!(direction: LEFT[direction])
   end
 
   def rotate_right
-    new_direction =
-      if direction == 'N'
-        'E'
-      elsif direction == 'E'
-        'S'
-      elsif direction == 'S'
-        'W'
-      elsif direction == 'W'
-        'N'
-      end
-    update!(direction: new_direction)
+    update!(direction: RIGHT[direction])
   end
 
   def move_rover
