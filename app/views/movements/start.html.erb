@@ -1,0 +1,20 @@
+<h2> Rovers </h2>
+<table>
+  <thead>
+  <th width="15%">ID</th>
+  <th width="15%">X Coordinate</th>
+  <th width="15%">Y Coordinate</th>
+  <th width="15%">Direction</th>
+  </thead>
+  <tbody>
+  <% @rovers.each do |rover| %>
+    <tr>
+      <td align="center"><%= rover.id %></td>
+      <td align="center"><%= rover.x_coordinate %></td>
+      <td align="center"><%= rover.y_coordinate %></td>
+      <td align="center"><%= rover.direction %></td>
+    </tr>
+  <% end%>
+  </tbody>
+</table>
+<br/>
