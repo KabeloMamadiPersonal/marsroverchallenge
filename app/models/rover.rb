@@ -2,6 +2,7 @@ class Rover < ActiveRecord::Base
 
   validates :movements, :direction , presence: true
   validates :x_coordinate, :y_coordinate, presence: true, numericality: true
+  validates :direction, inclusion: { in: %w[N E S W], message: 'Only N, E, S, W'}
 
   RIGHT = {
     'N' => 'E',
