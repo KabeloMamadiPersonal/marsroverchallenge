@@ -11,3 +11,7 @@
     # 4. rails s
     
     # 5. Visit localhost:3000
+
+    # To run the tests
+
+    # 1. bundle exec rspec --color --format progress spec
