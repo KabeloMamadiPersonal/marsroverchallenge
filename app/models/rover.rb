@@ -1,5 +1,8 @@
 class Rover < ActiveRecord::Base
 
+  validates :movements, :direction , presence: true
+  validates :x_coordinate, :y_coordinate, presence: true, numericality: true
+
   RIGHT = {
     'N' => 'E',
     'E' => 'S',
